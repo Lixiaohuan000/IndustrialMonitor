@@ -1,5 +1,3 @@
-#undef NV12//解决MSVC下NV12宏冲突问题
-
 #include "video.h"
 #include <QElapsedTimer>
 #include <QDebug>
