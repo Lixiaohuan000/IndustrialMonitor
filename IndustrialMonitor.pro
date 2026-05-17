@@ -34,6 +34,17 @@ INCLUDEPATH += $$FFMPEG_DIR/include
 LIBS += -L$$FFMPEG_DIR/lib \
         -lavformat -lavcodec -lavutil -lswscale
 
+
+# 选择硬件加速平台,根据目标平台注释/取消注释
+DEFINES += USE_D3D11VA      # Windows D3D11VA
+# Windows D3D11VA 硬件加速必须的系统库
+LIBS += -ld3d11 -ldxva2 -ld3dcompiler
+
+# DEFINES += USE_VAAPI      # Linux VA-API
+#LIBS += -lva -lva-dr
+
+
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
